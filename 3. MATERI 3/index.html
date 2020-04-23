@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>3. MATERI 3 - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">HALLO!</a>
+                            </li>
+                            <li >
+                                <a href="../1. McLaurin/">1. McLaurin</a>
+                            </li>
+                            <li >
+                                <a href="../2. newton raphson/">2. newton raphson</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">3. MATERI 3</a>
+                            </li>
+                            <li >
+                                <a href="../4. recursive trapezoid/">4. recursive trapezoid</a>
+                            </li>
+                            <li >
+                                <a href="../5. Richardson Extrapolation/">5. Richardson Extrapolation</a>
+                            </li>
+                            <li >
+                                <a href="../6. EULER/">6. EULER</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../2. newton raphson/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../4. recursive trapezoid/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#metode-gauss-jordan">METODE GAUSS JORDAN</a></li>
+            <li><a href="#pengertian">PENGERTIAN</a></li>
+            <li><a href="#dasar-teori">DASAR TEORI</a></li>
+            <li><a href="#contoh">CONTOH</a></li>
+            <li><a href="#program">PROGRAM</a></li>
+        <li class="main "><a href="#metode-jacob">METODE JACOB</a></li>
+            <li><a href="#pengertian_1">PENGERTIAN</a></li>
+            <li><a href="#program_1">PROGRAM</a></li>
+        <li class="main "><a href="#metode-gauss-seidel">METODE GAUSS SEIDEL</a></li>
+            <li><a href="#pengertian_2">PENGERTIAN</a></li>
+            <li><a href="#konsep-metode-gauss-seidel">KONSEP METODE GAUSS SEIDEL</a></li>
+            <li><a href="#algoritma-metode-gauss-seidel">ALGORITMA METODE GAUSS SEIDEL</a></li>
+            <li><a href="#program_2">PROGRAM</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h3 id="metode-gauss-jordan">METODE GAUSS JORDAN</h3>
+<h5 id="pengertian">PENGERTIAN</h5>
+<p>Metode Gauss-Jordan merupakan suatu variasi dari Eliminasi Gauss dan dalam bahasa analitik biasanya lebih dikenal dengan nama reduksi baris. Perbedaan utamanya dengan eliminasi Gauss adalah bila sebuah yang tidak diketahui dieliminasikan dengan metode Gauss-Jordan maka ia deliminasikan dari setiap persamaan lainnya. Ini merupakan bentuk matrik kesatuan,padahal eliminasi Gauss merupakan matrik triangular.</p>
+<h5 id="dasar-teori">DASAR TEORI</h5>
+<ol>
+<li>Penambahan Matrik sebelah kiri diubah menjadi matrik diagonal</li>
+</ol>
+<p><img alt="gambar" src="https://zidninuron.github.io/mohzidninuron.github.io/gambar.png" /></p>
+<ol>
+<li>Penyelesaian dari persamaan linier simultan diatas adalah nilai d1,d2,d3,…,dn dan atau x1 = d1,x2 = d2,x3=d3,….,xn=dn</li>
+<li>Teknik yang digunakan dalam metode eliminasi Gauss-Jordan ini sama seperti metode eliminasi Gauss yaitu menggunakan OBE (Operasi Baris Elementer). Hanya perhitungan penyelesaian secara langsung diperoleh dari nilai pada kolom terakhir dari setiap baris .</li>
+<li>Satu cara yang gamblang untuk menghitung inversi ialah dengan menggunakan metode Gauss-Jordan. Untuk melakukan ini,matriks koefisien diperluas dengan sebuah matriks kesatuan. Kemudian metode Gauss Jordan diterapkan agar mengurangi matriks koefisien menjadi sebuah matriks kesatuan. Jika ini telah selesai, ruas kanan matriks yang diperluas akan mengandung inversi</li>
+</ol>
+<h5 id="contoh">CONTOH</h5>
+<p>•Selesaikan sistem persamaan :</p>
+<p><img alt="Picture1" src="https://zidninuron.github.io/mohzidninuron.github.io/Picture1.png" /></p>
+<p><img alt="Picture2" src="https://zidninuron.github.io/mohzidninuron.github.io/Picture2.png" /></p>
+<p><img alt="Picture3" src="https://zidninuron.github.io/mohzidninuron.github.io/Picture3.png" /></p>
+<h5 id="program">PROGRAM</h5>
+<pre><code class="python">import numpy as np
+
+#Definisi Matrix
+A = []
+B = []
+
+n = int(input(&quot;Masukkan ukuran Matrix: &quot;))
+for i in range(n):
+    baris=[]
+    for i in range(n):
+        a=int(input(&quot;Masukkan Nilai: &quot;))
+        baris.append(a)
+    A.append(baris)
+for i in range(n):
+    h = int(input(&quot;Masukkan Hasil: &quot;))
+    B.append(h)
+
+Matrix=np.array(A,float)
+Hasil=np.array(B,float)
+
+n=len(Matrix)
+
+
+#Eliminasi Gauss
+
+for k in range(0,n-1):
+    for i in range(k+1,n):
+        if Matrix[i,k]!=0 :
+            lam=Matrix[i,k]/Matrix[k,k]
+            Matrix[i,k:n]=Matrix[i,k:n]-(Matrix[k,k:n]*lam)
+            Hasil[i]=Hasil[i]-(Hasil[k]*lam)
+
+print(&quot;Matrix A : &quot;,'\n',Matrix)
+
+#Subtitution
+x=np.zeros(n,float)
+for m in range(n-1,-1,-1):
+    x[m]=(Hasil[m]-np.dot(Matrix[m, m+1:n], x[m+1:n]))/Matrix[m,m]
+    print('Nilai X ',m+1, '=',x[m])
+</code></pre>
+
+<p>hasil Run :</p>
+<pre><code class="python">Hasil 1:
+Masukkan ukuran Matrix: 3
+Masukkan Nilai: 1
+Masukkan Nilai: 1
+Masukkan Nilai: 1
+Masukkan Nilai: 1
+Masukkan Nilai: -1
+Masukkan Nilai: 2
+Masukkan Nilai: 2
+Masukkan Nilai: 1
+Masukkan Nilai: -1
+Masukkan Hasil: 6
+Masukkan Hasil: 2
+Masukkan Hasil: 3
+Matrix A :  
+ [[ 1.   1.   1. ]
+ [ 0.  -2.   1. ]
+ [ 0.   0.  -3.5]]
+Nilai X  3 = 2.0
+Nilai X  2 = 3.0
+Nilai X  1 = 1.0
+</code></pre>
+
+<h3 id="metode-jacob">METODE JACOB</h3>
+<h5 id="pengertian_1">PENGERTIAN</h5>
+<p><strong>Metode [Iterasi] Jacobi</strong> merupakan salah satu bidang analisis numerik yang digunakan untuk menyelesaikan permasalahan persamaan linear dan sering dijumpai dalam berbagai disiplin ilmu. Metode Iterasi Jacobi merupakan salah satu metode tak langsung, yaitu bermula dari suatu hampiran penyelesaian awal dan kemudian berusaha memperbaiki hampiran dalam tak berhingga namun langkah konvergen. Metode Iterasi Jacobi ini digunakan untuk menyelesaikan [persamaan linear] berukuran besar dan proporsi koefisien nolnya besar.</p>
+<p>Kalau kita mengubah dalam Sistem Persamaan Linear, maka dapat ditulis sebagai berikut:</p>
+<p>Ax=b</p>
+<p>Kemudian, diketahui bahwa A =D + (L + U), di mana D merupakan matriks diagonal, L merupakan matriks segitiga bawah, dan U merupakan matriks segitiga atas.</p>
+<p>Kemudian, persamaan di atas dapat diubah menjadi:</p>
+<p>Dx + (L + U)x=b</p>
+<p>Kemudian,</p>
+<p>× = D ̄ ¹[b-( L + U )×⁽ᵏ⁾]</p>
+<p>Jika ditulis dalam aturan iteratif, maka metode Jacobi dapat ditulis sebagai:</p>
+<p>×⁽ᵏ⁺¹⁾ = D ̄¹[b-( L + U )×⁽ᵏ⁾]</p>
+<p>di mana k merupakan banyaknya iterasi. Jika ×⁽ᵏ⁾ menyatakan hampiran ke-k penyelesaian SPL, maka ×⁽⁰⁾ adalah hampiran awal.<img alt="Screenshot (62)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2862%29.png" /></p>
+<h5 id="program_1">PROGRAM</h5>
+<pre><code class="python">from pprint import pprint
+from numpy import array, zeros, diag, diagflat, dot
+import numpy as np
+
+def jacobi(A,b,N=25,x=None):
+        #Membuat iniial guess                                                                                                                                                         
+    if x is None:
+        x = zeros(len(A[0]))
+
+    #Membuat vektor dari elemen matrix A                                                                                                                                                                                                                                                                                                                 
+    D = diag(A)
+    R = A - diagflat(D)
+
+    #Iterasi                                                                                                                                                                        
+    for i in range(N):
+        x = (b - dot(R,x)) / D
+    return x
+
+Mat1 = []
+Mat2 = []
+
+n = int(input(&quot;Masukkan ukuran Matrix: &quot;))
+for i in range(n):
+    baris=[]
+    for i in range(n):
+        a=int(input(&quot;Masukkan Nilai: &quot;))
+        baris.append(a)
+    Mat1.append(baris)
+for i in range(n):
+    h = int(input(&quot;Masukkan Hasil: &quot;))
+    Mat2.append(h)
+
+A = array(Mat1,float)
+b = array(Mat2,float)
+x=len(Mat1)
+guess = np.zeros(x,float)
+
+sol = jacobi(A,b,N=25,x=guess)
+
+print(&quot;A:&quot;)
+pprint(A)
+
+print(&quot;b:&quot;)
+pprint(b)
+
+print(&quot;x:&quot;)
+pprint(sol)
+</code></pre>
+
+<p>HASI RUN</p>
+<pre><code class="python">contoh 1:
+Masukkan ukuran Matrix: 3
+Masukkan Nilai: 2
+Masukkan Nilai: 4
+Masukkan Nilai: 3
+Masukkan Nilai: 5
+Masukkan Nilai: 7
+Masukkan Nilai: 3
+Masukkan Nilai: 5
+Masukkan Nilai: 6
+Masukkan Nilai: 3
+Masukkan Hasil: 20
+Masukkan Hasil: 18
+Masukkan Hasil: 30
+A:
+array([[2., 4., 3.],
+       [5., 7., 3.],
+       [5., 6., 3.]])
+b:
+array([20., 18., 30.])
+x:
+array([2.06506309e+10, 9.61264713e+09, 2.15123264e+10])
+
+Cotoh 2:
+Masukkan ukuran Matrix: 2
+Masukkan Nilai: 3
+Masukkan Nilai: 6
+Masukkan Nilai: 3
+Masukkan Nilai: 8
+Masukkan Hasil: 9
+Masukkan Hasil: 16
+A:
+array([[3., 6.],
+       [3., 8.]])
+b:
+array([ 9., 16.])
+x:
+array([-3.77826554,  3.45248547])
+</code></pre>
+
+<h3 id="metode-gauss-seidel">METODE GAUSS SEIDEL</h3>
+<h5 id="pengertian_2">PENGERTIAN</h5>
+<p>Eliminasi Gauss seidel adalah metode yang menggunakan proses iterasi hingga diperoleh nilai nilai yang berubah.</p>
+<p>Bilai diketahui peramaan linier simultan:</p>
+<p><img alt="Screenshot (64)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2864%29.png" /></p>
+<h5 id="konsep-metode-gauss-seidel">KONSEP METODE GAUSS SEIDEL</h5>
+<ol>
+<li>Hitung nilai xi untuk (i = 1 s/d n)</li>
+</ol>
+<h5 id="_1"><img alt="Screenshot (65)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2865%29.png" /></h5>
+<ol>
+<li>proses iterasi dihentikan apabila bila selisih nilai xi (i = 1 s/d n ) dengan nilai xi pada iterasi sebelumnya kurang dari nilai toleransi error yang ditentukan</li>
+</ol>
+<h5 id="algoritma-metode-gauss-seidel">ALGORITMA METODE GAUSS SEIDEL</h5>
+<ol>
+<li>
+<p>Masukkan matrik <strong>A</strong>, dan vektor <strong>B</strong> beserta ukuranya n.</p>
+</li>
+<li>
+<p>tentukan batas maksimum iterasi max_iter</p>
+</li>
+<li>
+<p>tentukkan toleransi error.</p>
+</li>
+<li>
+<p>tentukan nilai awal dari xi, untuk i =1 s/d n</p>
+</li>
+<li>
+<p>simpan xi dalam si, untuk i=1 s/d n</p>
+</li>
+<li>
+<p>untuk i=1 s/d n hitung<img alt="Screenshot (66)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2866%29.png" /></p>
+</li>
+<li>
+<p>iterasi &lt;- iterasi +1</p>
+</li>
+<li>
+<p>bila iterasi lebih dari max_iter atau tidak terdapat ei&lt;ϵ untuk i=1 s/d n maka proses dihentikan dari penyelesaianya adalah xi untuk i=1 s/d n. Bila tidak maka ulangi langkah (5).</p>
+</li>
+</ol>
+<h5 id="program_2">PROGRAM</h5>
+<pre><code class="python">def seidel(a, x ,b): 
+    #Mencari Panjang Matrix  
+    n = len(a)               
+    for j in range(0, n):        
+        d = b[j]                 
+        #Menghitung xi, yi, zi 
+        for i in range(0, n):    
+            if(j != i): 
+                d-=a[j][i] * x[i]        
+        x[j] = d / a[j][j] #Solusi   
+    return x     
+
+m=int(input(&quot;Masukkan Panjang Matrix: &quot;))
+a=[]
+b=[]
+for k in range(m):
+    mat1=[]
+    for i in range(m):
+        l=float(input(&quot;Masukkan a&quot;+str(k+1)+&quot;,&quot;+str(i+1)+&quot;: &quot;))
+        mat1.append(l)
+    h=float(input(&quot;Masukkan Hasil: &quot;))
+    b.append(h)
+    a.append(mat1)
+
+n = 3                           
+x = [0, 0, 0]                        
+print(x) 
+
+for i in range(0, 100):          
+    x = seidel(a, x, b) 
+    #print each time the updated solution 
+    print(x)                     
+</code></pre>
+
+<pre><code class="python">Masukkan Panjang Matrix: 2
+Masukkan a1,1: 2
+Masukkan a1,2: 4
+Masukkan Hasil: 3
+Masukkan a2,1: 5
+Masukkan a2,2: 3
+Masukkan Hasil: 8
+[0, 0, 0]
+[1.5, 0.16666666666666666, 0]
+[1.1666666666666667, 0.722222222222222, 0]
+[0.055555555555556024, 2.574074074074073, 0]
+[-3.648148148148146, 8.74691358024691, 0]
+[-15.993827160493819, 29.3230452674897, 0]
+[-57.1460905349794, 97.91015089163233, 0]
+[-194.32030178326465, 326.53383630544107, 0]
+[-651.5676726108821, 1088.6127876848036, 0]
+[-2175.725575369607, 3628.8759589493457, 0]
+[-7256.251917898691, 12096.419863164485, 0]
+[-24191.33972632897, 40321.566210548284, 0]
+[-80641.63242109657, 134405.38736849427, 0]
+[-268809.27473698853, 448018.1245616476, 0]
+[-896034.7491232952, 1493393.915205492, 0]
+[-2986786.330410984, 4977979.884018307, 0]
+[-9955958.268036613, 16593266.446727687, 0]
+[-33186531.393455375, 55310888.322425626, 0]
+[-110621775.14485125, 184369627.90808544, 0]
+[-368739254.3161709, 614565426.5269514, 0]
+[-1229130851.5539029, 2048551421.9231713, 0]
+[-4097102842.3463426, 6828504739.910571, 0]
+[-13657009478.321142, 22761682466.535236, 0]
+[-45523364931.57047, 75872274888.61745, 0]
+[-151744549775.7349, 252907582962.22482, 0]
+[-505815165922.94965, 843025276540.916, 0]
+[-1686050553080.332, 2810084255136.553, 0]
+[-5620168510271.606, 9366947517122.01, 0]
+[-18733895034242.52, 31223158390406.863, 0]
+[-62446316780812.23, 104077194634689.7, 0]
+[-208154389269377.9, 346923982115632.5, 0]
+[-693847964231263.5, 1156413273718775.2, 0]
+[-2312826547437549.0, 3854710912395917.5, 0]
+[-7709421824791834.0, 1.2849036374653058e+16, 0]
+[-2.5698072749306116e+16, 4.283012124884353e+16, 0]
+[-8.566024249768706e+16, 1.4276707082947842e+17, 0]
+[-2.8553414165895683e+17, 4.7589023609826144e+17, 0]
+[-9.517804721965229e+17, 1.5863007869942047e+18, 0]
+[-3.1726015739884093e+18, 5.287669289980682e+18, 0]
+[-1.0575338579961364e+19, 1.7625564299935607e+19, 0]
+[-3.5251128599871214e+19, 5.875188099978536e+19, 0]
+[-1.1750376199957071e+20, 1.9583960333261786e+20, 0]
+[-3.916792066652357e+20, 6.527986777753928e+20, 0]
+[-1.3055973555507857e+21, 2.1759955925846427e+21, 0]
+[-4.3519911851692854e+21, 7.253318641948809e+21, 0]
+[-1.4506637283897618e+22, 2.417772880649603e+22, 0]
+[-4.835545761299206e+22, 8.059242935498677e+22, 0]
+[-1.6118485870997353e+23, 2.6864143118328925e+23, 0]
+[-5.372828623665785e+23, 8.954714372776308e+23, 0]
+[-1.7909428745552617e+24, 2.984904790925436e+24, 0]
+[-5.969809581850872e+24, 9.94968263641812e+24, 0]
+[-1.989936527283624e+25, 3.3165608788060404e+25, 0]
+[-6.633121757612081e+25, 1.1055202929353469e+26, 0]
+[-2.2110405858706938e+26, 3.685067643117823e+26, 0]
+[-7.370135286235646e+26, 1.2283558810392744e+27, 0]
+[-2.4567117620785488e+27, 4.094519603464248e+27, 0]
+[-8.189039206928496e+27, 1.364839867821416e+28, 0]
+[-2.729679735642832e+28, 4.549466226071387e+28, 0]
+[-9.098932452142774e+28, 1.5164887420237957e+29, 0]
+[-3.0329774840475915e+29, 5.054962473412652e+29, 0]
+[-1.0109924946825304e+30, 1.6849874911375506e+30, 0]
+[-3.3699749822751013e+30, 5.616624970458502e+30, 0]
+[-1.1233249940917004e+31, 1.8722083234861674e+31, 0]
+[-3.7444166469723348e+31, 6.240694411620558e+31, 0]
+[-1.2481388823241117e+32, 2.0802314705401862e+32, 0]
+[-4.1604629410803725e+32, 6.934104901800621e+32, 0]
+[-1.3868209803601242e+33, 2.311368300600207e+33, 0]
+[-4.622736601200414e+33, 7.704561002000691e+33, 0]
+[-1.5409122004001381e+34, 2.568187000666897e+34, 0]
+[-5.136374001333794e+34, 8.560623335556324e+34, 0]
+[-1.712124667111265e+35, 2.853541111852108e+35, 0]
+[-5.707082223704216e+35, 9.511803706173693e+35, 0]
+[-1.9023607412347386e+36, 3.170601235391231e+36, 0]
+[-6.341202470782462e+36, 1.0568670784637437e+37, 0]
+[-2.1137341569274874e+37, 3.5228902615458124e+37, 0]
+[-7.045780523091625e+37, 1.1742967538486043e+38, 0]
+[-2.3485935076972086e+38, 3.914322512828681e+38, 0]
+[-7.828645025657362e+38, 1.3047741709428937e+39, 0]
+[-2.6095483418857873e+39, 4.349247236476312e+39, 0]
+[-8.698494472952624e+39, 1.4497490788254373e+40, 0]
+[-2.8994981576508745e+40, 4.832496929418125e+40, 0]
+[-9.66499385883625e+40, 1.6108323098060416e+41, 0]
+[-3.221664619612083e+41, 5.369441032686805e+41, 0]
+[-1.073888206537361e+42, 1.789813677562268e+42, 0]
+[-3.579627355124536e+42, 5.966045591874227e+42, 0]
+[-1.1932091183748453e+43, 1.9886818639580756e+43, 0]
+[-3.977363727916151e+43, 6.628939546526918e+43, 0]
+[-1.3257879093053837e+44, 2.209646515508973e+44, 0]
+[-4.419293031017946e+44, 7.365488385029909e+44, 0]
+[-1.4730976770059818e+45, 2.4551627950099695e+45, 0]
+[-4.910325590019939e+45, 8.183875983366565e+45, 0]
+[-1.636775196673313e+46, 2.727958661122189e+46, 0]
+[-5.455917322244377e+46, 9.093195537073962e+46, 0]
+[-1.8186391074147924e+47, 3.0310651790246545e+47, 0]
+[-6.062130358049309e+47, 1.0103550596748849e+48, 0]
+[-2.0207101193497698e+48, 3.3678501989162833e+48, 0]
+[-6.735700397832567e+48, 1.1226167329720944e+49, 0]
+[-2.245233465944189e+49, 3.742055776573648e+49, 0]
+[-7.484111553147296e+49, 1.2473519255245493e+50, 0]
+2.4947038510490986e+50, 4.1578397517484975e+50, 0]
+[-8.315679503496995e+50, 1.385946583916166e+51, 0]
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

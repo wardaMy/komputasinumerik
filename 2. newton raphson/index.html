@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>2. newton raphson - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">HALLO!</a>
+                            </li>
+                            <li >
+                                <a href="../1. McLaurin/">1. McLaurin</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">2. newton raphson</a>
+                            </li>
+                            <li >
+                                <a href="../3. MATERI 3/">3. MATERI 3</a>
+                            </li>
+                            <li >
+                                <a href="../4. recursive trapezoid/">4. recursive trapezoid</a>
+                            </li>
+                            <li >
+                                <a href="../5. Richardson Extrapolation/">5. Richardson Extrapolation</a>
+                            </li>
+                            <li >
+                                <a href="../6. EULER/">6. EULER</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../1. McLaurin/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../3. MATERI 3/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#newton-raphson-adalah">NEWTON RAPHSON adalah...</a></li>
+            <li><a href="#algoritma">ALGORITMA :</a></li>
+            <li><a href="#program">PROGRAM</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="newton-raphson-adalah">NEWTON RAPHSON adalah...</h2>
+<p>Metode pendekatan yang menggunakan satu titik awal dn mendekatinya dengan memperhatikan slope atau gradien titik tersebut. Titik pendekatan ke n+1 dituliskan dengan :</p>
+<p><img alt="image-20200310160554502" src="C:\Users\wanda\AppData\Roaming\Typora\typora-user-images\image-20200310160554502.png" /></p>
+<p>formulanya :</p>
+<p><img alt="image-20200310161501820" src="C:\Users\wanda\AppData\Roaming\Typora\typora-user-images\image-20200310161501820.png" /></p>
+<p><em>Garis singgung terhadap fungsi pada Xn[yakni f'(Xn)] diekstrapolasikan kebawah terhadap sumbu x untuk memberikan sebuah taksiran akar pada Xn+1.</em></p>
+<h6 id="algoritma">ALGORITMA :</h6>
+<p>1.Definisikan fungsi f(x) dan f1(x)</p>
+<p>2.Tentukan toleransi error (e) dan iterasi maksimum (n)</p>
+<p>3.Tentukan nilai pendekatan awal Xo</p>
+<p>4.Hitung f(Xo) dan f1(Xo)</p>
+<p>5.Untuk iterasi I = 1 s/d n atau |f(xi)|e&gt;=</p>
+<p><img src="C:\Users\wanda\AppData\Roaming\Typora\typora-user-images\image-20200310165401670.png" alt="image-20200310165401670" style="zoom: 80%;" /></p>
+<p>Hitung f(Xi) dan f1(Xi)</p>
+<p>6.Akar persamaan adalah nilai xi yang terakhir diperoleh.</p>
+<p>Algoritma Metode Newton Raphson dengan modifikasi tabel  :</p>
+<p>Definisikan fungsi F(x) </p>
+<p>ambil range nilai x = [a,b], dengan jumlah pembagi n</p>
+<p>Masukkan torelansi error (e) dan masukkan iterasi n</p>
+<p>Gunakan algoritma tabel diperoleh titik pendekatan awal Xo dari : </p>
+<p>F(Xk) . F(Xk+1)&lt;0 maka Xo = Xk</p>
+<p>Hitung F(Xo) dan F1(Xo)</p>
+<p>Bila F( abs (F^1 (Xo))) &lt; e, maka pendekatan awal Xo digeser sebesar dx </p>
+<p>Xo = Xo + dx </p>
+<p>hitung F(Xo) dan F1(Xo) </p>
+<p>Untuk iterasi I= 1 s/d n atau |F(xi)| e ≥ hitung F(Xi) dan F1(xi) </p>
+<p>bila |F1(Xi)| &lt; e maka </p>
+<p>​       Xi = Xi + dx </p>
+<p>hitung F(Xi) dan F1(Xo)</p>
+<p>Akar persamaan adalah x terakhir yang diperoleh. </p>
+<p><em>Dengan menggunakan algoritma Newton Raphson yang dimodifikasikan diharapkan akar yang diperoleh sesuai dengan harapan dan bila terdapat lebih dari satu akar dalam range ditunjuk, akan ditampilkan semuanya.</em> </p>
+<h5 id="program">PROGRAM</h5>
+<pre><code class="python">#import math - untuk mengambil library matematika
+#Program python untuk memperkirakan akar polinomial
+
+#menggunakan metode newton-raphson
+import math
+
+#f(x) -  fungsi polynomial 
+def f(x):
+    function = (x**3) - (2*x) - 1
+    return function
+
+#berfungsi untuk menemukan turunan dari polinomial
+def derivative(x): 
+    h = 0.000001
+    derivative = (f(x + h) - f(x)) / h
+    return derivative
+
+def newton_raphson(x):
+    return (x - (f(x) / derivative(x)))
+
+
+# p - titik awal mis. nilai lebih dekat ke root
+# n - jmulah iterasi
+
+def iterate(p, n):
+    print(&quot;Banyak Iterasinya =&quot;,n)
+    x = p
+    for i in range(n):
+        x = newton_raphson(x)
+        print(&quot;iterasi ke-&quot;, i , &quot;=&quot;, x)         
+    return (&quot;&quot;)
+
+#cetakan akar polinomial x ^ 3 - 2x - 1 menggunakan 20 iterasi dan ambil titik awal sebagai 1
+print(iterate(1, 20))      
+</code></pre>
+
+<p>hasil run :</p>
+<p>```python
+  Banyak Iterasinya = 20
+   iterasi ke- 0 = 2.999994000093219
+   iterasi ke- 1 = 2.199996832141079
+   iterasi ke- 2 = 1.7808294919560141
+   iterasi ke- 3 = 1.6363030634057565
+   iterasi ke- 4 = 1.618304588651506
+   iterasi ke- 5 = 1.6180340496697716
+   iterasi ke- 6 = 1.6180339887499484
+   iterasi ke- 7 = 1.6180339887498947
+   iterasi ke- 8 = 1.618033988749895
+   iterasi ke- 9 = 1.618033988749895
+   iterasi ke- 10 = 1.618033988749895
+   iterasi ke- 11 = 1.618033988749895
+   iterasi ke- 12 = 1.618033988749895
+   iterasi ke- 13 = 1.618033988749895
+   iterasi ke- 14 = 1.618033988749895
+   iterasi ke- 15 = 1.618033988749895
+   iterasi ke- 16 = 1.618033988749895
+   iterasi ke- 17 = 1.618033988749895
+   iterasi ke- 18 = 1.618033988749895
+   iterasi ke- 19 = 1.618033988749895</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>```</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

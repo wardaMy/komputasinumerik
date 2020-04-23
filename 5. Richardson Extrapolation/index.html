@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>5. Richardson Extrapolation - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">HALLO!</a>
+                            </li>
+                            <li >
+                                <a href="../1. McLaurin/">1. McLaurin</a>
+                            </li>
+                            <li >
+                                <a href="../2. newton raphson/">2. newton raphson</a>
+                            </li>
+                            <li >
+                                <a href="../3. MATERI 3/">3. MATERI 3</a>
+                            </li>
+                            <li >
+                                <a href="../4. recursive trapezoid/">4. recursive trapezoid</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">5. Richardson Extrapolation</a>
+                            </li>
+                            <li >
+                                <a href="../6. EULER/">6. EULER</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../4. recursive trapezoid/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../6. EULER/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#pengertian">PENGERTIAN</a></li>
+            <li><a href="#tugas">TUGAS</a></li>
+        <li class="main "><a href="#program">PROGRAM</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h4 id="pengertian">PENGERTIAN</h4>
+<p>Richardson Extrapolation adalah metode percepatan urutan, yang digunakan untuk meningkatkan laju konvergensi suatu urutan.</p>
+<p>Richardson Extrapolation termasuk integrasi Romberg, yang menerapkan ekstrapolasi Richardson pada aturan trapesium, dan algoritma Bulirsch-Stoer untuk menyelesaikan persamaan diferensial biasa.</p>
+<p>Beda terpusat (Central Difference):</p>
+<p><img alt="Screenshot (96)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2896%29.png" /></p>
+<p>Dapat kita mendapat formula terbaik ?</p>
+<p>Ditetapkan f (x) dan x tertentu:</p>
+<p><img alt="Screenshot (97)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2897%29.png" /></p>
+<h5 id="tugas">TUGAS</h5>
+<p>• Gunakan fungsi:</p>
+<p>f(x)=−0.1x4−0.15x3−0.5x2−0.25x+1.2f(x)=−0.1x4−0.15x3−0.5x2−0.25x+1.2</p>
+<p>Mulai dari h1=0.5 dan h2=0.25 hitung estimasi dengan f'(0.5) menggunakan richardson Extrapolation</p>
+<p>• nilai sesungguhnya f'(0.5)=−0.9125</p>
+<p>SOLUSI :</p>
+<p>Turunan pertama dapat dihitung dengan beda terpusat ( centered differences) yaitu:</p>
+<p><img alt="Screenshot (98)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2898%29.png" /></p>
+<p>Estimasi dapat di perbaiki dengan menggunakan :</p>
+<p><img alt="Screenshot (99)" src="https://zidninuron.github.io/mohzidninuron.github.io/Screenshot%20%2899%29.png" /></p>
+<p>yang menghasilkan nilai yang sama</p>
+<p>TABLE</p>
+<table>
+<thead>
+<tr>
+<th>D(0,0) = Ø (h)</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D(1,0) =Ø(h/2)</td>
+<td>D(1,1)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D(2,0)=Ø(h/4)</td>
+<td>D(2,1)</td>
+<td>D(2,2)</td>
+<td></td>
+</tr>
+<tr>
+<td>D(3,0)=Ø(h/8)</td>
+<td>D(3,1)</td>
+<td>D(3,2)</td>
+<td>D(3,3)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="program">PROGRAM</h4>
+<pre><code class="python">from math import *
+def nol(n,m): # matrik nol untuk lokasi awal
+    Z=[]
+    for i in range(n):
+        Z.append([0]*m)
+    return Z
+
+def D(fungsi,a,h):    # pergbedaan terbatas terpusat dengan ukuran langkah h pada x=a
+    return (fungsi(a+h)-fungsi(a-h))/(2*h)
+
+def Richardson_dif(fung,a): 
+    '''Metode extrapolasi Richartdson untuk menghitung numerik turunan pertama '''
+    k=9 # Kamnu dapat merubah rutan aproksimasi tetapi usahakan dibawah 10 untuk menghindari kesalahan pembulatan.
+    L=nol(k,k)
+    for I in range(k):
+        L[I][0]=D(fung,a,1/(2**(I+1)))
+    for j in range(1,k):
+        for i in range(k-j):
+            L[i][j]=((4**(j))*L[i+1][j-1]-L[i][j-1])/(4**(j)-1)
+    return L[0][k-1]
+
+print('diferensiasi numerik dari Funsi 1=-0.1*x**4-0.15*x**3-0.5*x**2-0.25*x+1.2 at x=0.5')
+print (&quot; &quot;)
+print('%04.20f'%Richardson_dif(lambda x: -0.1*x**4-0.15*x**3-0.5*x**2-0.25*x+1.2 ,0.5))
+print(&quot; &quot;)
+print('diff(2**cos(pi+sin(x)) at x=pi/2 is equal to = %04.20f'%Richardson_dif(lambda x: 2**cos(pi+sin(x)),pi/3))
+</code></pre>
+
+<p>RUN</p>
+<pre><code class="python">diferensiasi numerik dari Funsi 1=-0.1*x**4-0.15*x**3-0.5*x**2-0.25*x+1.2 at x=0.5
+
+ Hasil  dari fungsi di atas = -0.91250000000000530687
+
+diff(2**cos(pi+sin(x)) at x=pi/2 is equal to = 0.16849558398154249050
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
